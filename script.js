@@ -4,6 +4,7 @@ const form = document.querySelector("#todo-form");
 const list = document.querySelector("#list");
 const input = document.querySelector("#new-todo");
 const button = document.querySelector("#date");
+const completedList = document.querySelector("#completed-list");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -22,7 +23,25 @@ form.addEventListener("submit", (event) => {
     listItem.remove();
   });
 
+  // checkbox
+  const itemCheckbox = document.createElement("input");
+  itemCheckbox.type = "checkbox";
+
+  itemCheckbox.addEventListener("change", () => {
+    if (itemCheckbox.checked) {
+      listItem.style.textDecoration = "line-through";
+      list.removeChild(listItem);
+      completedList.appendChild(listItem);
+    } else {
+      listItem.style.textDecoration = "none";
+      completedList.remove(listItem);
+      list.appendChild(listItem);
+    }
+  });
+
   listItem.appendChild(deleteButton);
+
+  listItem.appendChild(itemCheckbox);
 
   list.appendChild(listItem);
 

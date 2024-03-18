@@ -3,6 +3,7 @@
 const form = document.querySelector("#todo-form");
 const list = document.querySelector("#list");
 const input = document.querySelector("#new-todo");
+const button = document.querySelector("#date");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -24,4 +25,18 @@ form.addEventListener("submit", (event) => {
   listItem.appendChild(deleteButton);
 
   list.appendChild(listItem);
+
+  // Clear input after event
+  input.value = "";
+});
+
+button.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  const dateItem = document.createElement("h3");
+
+  const dateDisplayer = document.querySelector("#show-date");
+
+  const todaysDate = new Date();
+  dateDisplayer.innerText = "Today's date is: " + todaysDate;
 });

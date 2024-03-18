@@ -33,8 +33,6 @@ form.addEventListener("submit", (event) => {
 button.addEventListener("click", (event) => {
   event.preventDefault();
 
-  const dateItem = document.createElement("h3");
-
   const dateDisplayer = document.querySelector("#show-date");
 
   const todaysDate = new Date();

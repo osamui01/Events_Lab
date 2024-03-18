@@ -29,12 +29,12 @@ form.addEventListener("submit", (event) => {
 
   itemCheckbox.addEventListener("change", () => {
     if (itemCheckbox.checked) {
-      listItem.style.textDecoration = "line-through";
+      listItem.style.color = "#808080";
       list.removeChild(listItem);
       completedList.appendChild(listItem);
     } else {
-      listItem.style.textDecoration = "none";
-      completedList.remove(listItem);
+      listItem.style.color = "#000";
+      completedList.removeChild(listItem);
       list.appendChild(listItem);
     }
   });
